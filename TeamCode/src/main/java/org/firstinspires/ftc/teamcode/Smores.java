@@ -44,6 +44,7 @@ public class Smores extends LinearOpMode {
 
     // Declare OpMode members.
     private Servo servog; //graham crackers
+    //test
     private Servo servoc; //chocloate
     private Servo servom; //marshmallow
     private Double[] boundsg = {0.0,0.255};
