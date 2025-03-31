@@ -47,9 +47,10 @@ public class Smores extends LinearOpMode {
     //test
     private Servo servoc; //chocloate
     private Servo servom; //marshmallow
-    private Double[] boundsg = {0.0,0.255};
-    private Double[] boundsc = {0.0,0.255};
-    private Double[] boundsm = {0.0,0.255};
+
+    private Double[] boundsg = {0.0,0.19};
+    private Double[] boundsc = {0.0,0.215};
+    private Double[] boundsm = {0.0,0.24};
 
     @Override
     public void runOpMode() {
@@ -59,15 +60,22 @@ public class Smores extends LinearOpMode {
         // Initialize the hardware variables. Note that the strings used here as parameters
         // to 'get' must correspond to the names assigned during the robot configuration
         // step (using the FTC Robot Controller app on the phone).
+        servog = hardwareMap.get(Servo.class,"servo1");
+        servoc = hardwareMap.get(Servo.class,"servo2");
         servom = hardwareMap.get(Servo.class,"servo3");
+
 
         // Wait for the game to start (driver presses START)
         waitForStart();
 
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
+            servog.setPosition(boundsg[0]);
+            servoc.setPosition(boundsc[0]);
             servom.setPosition(boundsm[0]);
             sleep(2000);
+            servog.setPosition(boundsg[1]);
+            servoc.setPosition(boundsc[1]);
             servom.setPosition(boundsm[1]);
             sleep(2000);
         }
